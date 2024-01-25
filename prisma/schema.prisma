@@ -1,0 +1,52 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextIndex"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  name     String  @unique
+  email    String  @unique
+  image    String?
+  password String
+  role     Role    @default(USER)
+  Post     Post[]
+
+  @@map("users")
+}
+
+model Post {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  slug      String   @unique
+  title     String
+  body      String
+  image     String?
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String   @db.ObjectId
+  tags      Tag[]
+
+  @@fulltext([title(sort: Desc), body])
+  @@map("posts")
+}
+
+model Tag {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  Post   Post?   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String? @db.ObjectId
+
+  @@map("tags")
+}
