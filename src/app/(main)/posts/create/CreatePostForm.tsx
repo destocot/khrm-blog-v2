@@ -150,7 +150,7 @@ export const CreatePostForm = () => {
             </FormItem>
           )}
         />
-        <Button disabled={isSubmitting} type="submit">
+        <Button aria-label="Create post" disabled={isSubmitting} type="submit">
           Submit
         </Button>
       </form>

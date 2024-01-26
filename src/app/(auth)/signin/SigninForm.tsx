@@ -51,7 +51,7 @@ export const SigninForm = () => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-8 max-w-xs shadow-custom dark:shadow-muted p-5 rounded"
+        className="max-w-xs space-y-8 rounded p-5 shadow-custom dark:shadow-muted"
       >
         <FormField
           control={control}
@@ -83,7 +83,9 @@ export const SigninForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign in</Button>
+        <Button type="submit" aria-label="Sign in">
+          Sign in
+        </Button>
       </form>
     </Form>
   );

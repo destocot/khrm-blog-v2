@@ -11,7 +11,11 @@ export const SigninButton = () => {
   switch (session.status) {
     case "loading":
       return (
-        <Button className="min-w-20 animate-pulse" variant="inverse">
+        <Button
+          aria-label="Sign in/out placeholder"
+          className="min-w-20 animate-pulse"
+          variant="inverse"
+        >
           <div className="w-6">
             <Spinner />
           </div>
@@ -20,7 +24,12 @@ export const SigninButton = () => {
     case "authenticated":
       return (
         <form action={signout}>
-          <Button type="submit" className="min-w-20" variant="inverse">
+          <Button
+            aria-label="Sign out"
+            type="submit"
+            className="min-w-20"
+            variant="inverse"
+          >
             Sign out
           </Button>
         </form>
@@ -28,7 +37,12 @@ export const SigninButton = () => {
     case "unauthenticated":
     default:
       return (
-        <Button className="min-w-20" variant="inverse" asChild>
+        <Button
+          aria-label="Sign in"
+          className="min-w-20"
+          variant="inverse"
+          asChild
+        >
           <Link href="/signin">Sign in</Link>
         </Button>
       );

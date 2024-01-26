@@ -26,15 +26,11 @@ export const ImageInput = ({
 }: ImageInputProps) => {
   if (postImage) {
     return (
-      <div className="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm hover:outline-none hover:ring-1 hover:ring-ring justify-between">
-        <div className="grow ">
-          <Image
-            src={postImage}
-            alt="current post image"
-            width={300}
-            height={300}
-            className="object-cover w-20 h-20 aspect-square rounded block"
-          />
+      <div className="flex min-h-[60px] w-full justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm hover:outline-none hover:ring-1 hover:ring-ring">
+        <div className="grow">
+          <div className="block aspect-square h-20 w-20 rounded object-cover">
+            <Image src={postImage} alt="current post image" fill sizes="80px" />
+          </div>
         </div>
         <DeleteImageButton postId={postId} postImage={postImage} />
       </div>
@@ -46,7 +42,7 @@ export const ImageInput = ({
       {...field}
       type="file"
       accept="image/png, image/jpeg"
-      className="file:text-primary file:bg-primary-foreground cursor-pointer file:cursor-pointer"
+      className="cursor-pointer file:cursor-pointer file:bg-primary-foreground file:text-primary"
       onChange={(event) => {
         if (event.target.files) {
           onChange(event.target.files[0]);

@@ -20,14 +20,14 @@ export default async function DashboardPage({
   if (!session) notFound();
 
   return (
-    <main className="max-w-3xl p-5 mx-auto space-y-5">
+    <main className="mx-auto max-w-3xl space-y-5 p-5">
       <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-      <div className="shadow p-5 flex border  justify-between">
+      <div className="flex justify-between border p-5  shadow">
         <div>
           <h2 className="text-2xl font-semibold tracking-tight">
             {session?.user.name}
           </h2>
-          <p className="text-sm text-muted-foreground tracking-tight">
+          <p className="text-sm tracking-tight text-muted-foreground">
             {session?.user.email}
           </p>
         </div>
@@ -35,7 +35,8 @@ export default async function DashboardPage({
           <span>ID# {session?.user.id}</span>
           {session.user.role === "ADMIN" && (
             <Button
-              className="uppercase flex gap-2"
+              aria-label="Admin panel"
+              className="flex gap-2 uppercase"
               variant="destructive"
               asChild
             >

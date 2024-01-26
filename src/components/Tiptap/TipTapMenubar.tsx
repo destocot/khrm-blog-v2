@@ -16,6 +16,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
   return (
     <div className="mb-2 flex gap-4 rounded border border-muted p-2">
       <button
+        aria-label="Toggle bold"
         type="button"
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -26,6 +27,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <FontBoldIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Toggle italic"
         type="button"
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
@@ -36,6 +38,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <FontItalicIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Toggle code"
         type="button"
         onClick={() => editor.chain().focus().toggleCode().run()}
         disabled={!editor.can().chain().focus().toggleCode().run()}
@@ -46,6 +49,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <CodeIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Toggle bullet list"
         type="button"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         disabled={!editor.can().chain().focus().toggleBulletList().run()}
@@ -56,6 +60,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <ListBulletIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Toggle ordered list"
         type="button"
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         disabled={!editor.can().chain().focus().toggleOrderedList().run()}
@@ -66,6 +71,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <ListBulletIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Toggle code block"
         type="button"
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         disabled={!editor.can().chain().focus().toggleCodeBlock().run()}
@@ -76,6 +82,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <CodeSandboxLogoIcon />
       </button>
       <button
+        aria-label="Toggle block quote"
         type="button"
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         disabled={!editor.can().chain().focus().toggleBlockquote().run()}
@@ -86,6 +93,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <QuoteIcon className="h-6 w-6" />
       </button>
       <button
+        aria-label="Undo"
         type="button"
         onClick={() => editor.chain().focus().undo().run()}
         className={"rounded shadow-custom"}
@@ -102,6 +110,7 @@ export default function TipTapMenuBar({ editor }: { editor: Editor }) {
         <Redo className="h-6 w-6" />
       </button> */}
       <button
+        aria-label="Create link"
         type="button"
         onClick={() => setLink(editor)}
         className={"rounded shadow-custom"}

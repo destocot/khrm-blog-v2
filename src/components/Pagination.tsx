@@ -38,6 +38,7 @@ export const Pagination = ({ total, page }: PaginationProps) => {
   return (
     <div className="flex items-center justify-center gap-3">
       <Button
+        aria-label="Previous page"
         className="hover:scale-105"
         disabled={!PREV}
         variant="ghost"
@@ -51,6 +52,7 @@ export const Pagination = ({ total, page }: PaginationProps) => {
         <span className="font-bold">{LAST}</span>
       </p>
       <Button
+        aria-label="Next page"
         className="hover:scale-105"
         disabled={!NEXT}
         variant="ghost"

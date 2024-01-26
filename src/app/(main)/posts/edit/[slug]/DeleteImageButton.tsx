@@ -18,6 +18,7 @@ export const DeleteImageButton = ({
 
   return (
     <Button
+      aria-label="Delete image"
       type="button"
       variant="destructive"
       className="h-20 hover:scale-105"

@@ -19,6 +19,7 @@ export const PostMutations = ({ slug, id, authorId }: PostMutationsProps) => {
   return (
     <div className="flex gap-5">
       <Button
+        aria-label="Edit post"
         variant="warning"
         size="icon"
         className="min-w-24 sm:min-w-0"

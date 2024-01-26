@@ -22,7 +22,12 @@ export const ThemeToggler = () => {
   if (!mounted) {
     return (
       <div>
-        <Button onClick={handleTheme} size="icon" variant="ghost">
+        <Button
+          aria-label="Toggle theme placeholder"
+          onClick={handleTheme}
+          size="icon"
+          variant="ghost"
+        >
           <div className="w-6">
             <Spinner />
           </div>
@@ -33,7 +38,12 @@ export const ThemeToggler = () => {
 
   return (
     <div>
-      <Button onClick={handleTheme} size="icon" variant="ghost">
+      <Button
+        aria-label="Toggle theme"
+        onClick={handleTheme}
+        size="icon"
+        variant="ghost"
+      >
         {resolvedTheme === "dark" ? (
           <SunIcon width="22" height="22" />
         ) : (

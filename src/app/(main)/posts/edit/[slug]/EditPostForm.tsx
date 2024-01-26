@@ -140,7 +140,9 @@ export const EditPostForm = ({ post }: EditPostFormProps) => {
             </FormItem>
           )}
         />
-        <Button type="submit">Update</Button>
+        <Button aria-label="Edit post" type="submit">
+          Update
+        </Button>
       </form>
     </Form>
   );

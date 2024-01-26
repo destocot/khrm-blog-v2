@@ -1,6 +1,5 @@
 "use client";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { links } from "./Navbar";
 import {
   Sheet,
   SheetContent,
@@ -9,10 +8,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Navlink } from "./Navlink";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SigninButton } from "./SigninButton";
+import { Navlinks } from "./Navlinks";
 
 export const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
@@ -36,17 +35,9 @@ export const MobileNavbar = () => {
         <SheetContent side="left" className="w-1/2">
           <SheetHeader className="text-left">
             <SheetTitle>KhrmBlog</SheetTitle>
-            <SheetDescription>
+            <SheetDescription asChild>
               <ul className="space-y-5">
-                {links.map(({ href, label, authenticated }) => (
-                  <li key={href}>
-                    <Navlink
-                      href={href}
-                      label={label}
-                      authenticated={authenticated}
-                    />
-                  </li>
-                ))}
+                <Navlinks />
                 <li>
                   <SigninButton />
                 </li>

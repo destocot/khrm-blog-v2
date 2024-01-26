@@ -11,18 +11,15 @@ export const PostImage = ({
   title: string;
 }) => {
   return (
-    <div className="px-3 py-1 self-center">
-      <Link href={`/posts/view/${slug}`} className="block min-w-28">
+    <div className="self-center px-3 py-1">
+      <Link
+        href={`/posts/view/${slug}`}
+        className="relative block aspect-square h-28 w-28 overflow-hidden rounded object-cover"
+      >
         {image ? (
-          <Image
-            src={image}
-            alt={`${title} image`}
-            width={300}
-            height={300}
-            className="object-cover w-28 h-28 aspect-square rounded block"
-          />
+          <Image src={image} alt={`${title} image`} fill sizes="112px" />
         ) : (
-          <div className="w-28 h-28 aspect-square bg-primary rounded" />
+          <div className="aspect-square h-28 w-28 rounded bg-primary" />
         )}
       </Link>
     </div>

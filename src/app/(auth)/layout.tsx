@@ -9,13 +9,14 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="grid place-items-center min-h-screen relative">
+    <main className="relative grid min-h-screen place-items-center">
       {children}
-      <div className="absolute top-5 left-5">
-        <div className="flex gap-5 items-center">
+      <div className="absolute left-5 top-5">
+        <div className="flex items-center gap-5">
           <Button
-            className=" hover:scale-110 transition-transform"
+            className=" transition-transform hover:scale-110"
             size="icon"
+            aria-label="Home"
             asChild
           >
             <Link href="/">

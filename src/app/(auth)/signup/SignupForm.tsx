@@ -53,7 +53,7 @@ export const SignupForm = () => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-6 max-w-xs shadow-custom dark:shadow-muted p-5 rounded"
+        className="max-w-xs space-y-6 rounded p-5 shadow-custom dark:shadow-muted"
       >
         <FormField
           control={control}
@@ -102,7 +102,9 @@ export const SignupForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Sign up</Button>
+        <Button type="submit" aria-label="Sign up">
+          Sign up
+        </Button>
       </form>
     </Form>
   );

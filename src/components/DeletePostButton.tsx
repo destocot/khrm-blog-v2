@@ -14,18 +14,24 @@ export const DeletePostButton = ({
   return (
     <form action={deletePost.bind(null, id, onAdminPanel)}>
       {onAdminPanel ? (
-        <Button type="submit" variant="destructive" size="icon">
+        <Button
+          aria-label="Delete post"
+          type="submit"
+          variant="destructive"
+          size="icon"
+        >
           <TrashIcon width="22" height="22" />
         </Button>
       ) : (
         <Button
+          aria-label="Delete post"
           type="submit"
           variant="destructive"
           size="icon"
           className="min-w-24 sm:min-w-0"
         >
           <TrashIcon width="22" height="22" />
-          <span className="sm:hidden ms-2">Delete</span>
+          <span className="ms-2 sm:hidden">Delete</span>
         </Button>
       )}
     </form>
