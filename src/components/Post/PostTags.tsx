@@ -17,12 +17,14 @@ export const PostTags = ({
   return (
     <div className="flex items-center justify-end gap-4">
       <Link
+        aria-label="See post details"
         href={`/posts/view/${slug}`}
         className="h-full grow border border-transparent"
       />
       <div className="hidden gap-5 md:flex">
         {tags.map((tag) => (
           <Link
+            aria-label="Search post tag"
             href={`/posts/search?query=${tag.name}`}
             key={tag.id}
             className={cn(

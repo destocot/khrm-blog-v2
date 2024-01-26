@@ -108,8 +108,9 @@ export async function updatePost(
     return { error: fieldErrors, status: 400 };
   }
 
-  const { title, body, tags } = parsed.data;
+  const { title, body: unsanitizedBody, tags } = parsed.data;
   const slug = generateSlug(title);
+  const body = sanitizeHtml(unsanitizedBody);
 
   let updatedTags;
   if (tags) {

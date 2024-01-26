@@ -11,7 +11,13 @@ export const Navbar = () => {
       <nav className="mx-auto flex max-w-3xl items-center justify-between p-5">
         <div className="flex items-center gap-5">
           <Avatar>
-            <AvatarImage src="/avatar.png" alt="avatar" loading="lazy" />
+            <AvatarImage
+              src="/avatar_300x300.webp"
+              alt="avatar"
+              loading="lazy"
+              width="300"
+              height="300"
+            />
             <AvatarFallback>KA</AvatarFallback>
           </Avatar>
           <Link href="/" className="text-3xl font-bold tracking-tight">
