@@ -9,9 +9,15 @@ interface PostMutationsProps {
   slug: string;
   id: string;
   authorId: string;
+  title: string;
 }
 
-export const PostMutations = ({ slug, id, authorId }: PostMutationsProps) => {
+export const PostMutations = ({
+  slug,
+  title,
+  id,
+  authorId,
+}: PostMutationsProps) => {
   const session = useSession();
 
   if (session.data?.user.id !== authorId) return null;
@@ -30,7 +36,7 @@ export const PostMutations = ({ slug, id, authorId }: PostMutationsProps) => {
           <span className="ms-2 sm:hidden">Edit</span>
         </Link>
       </Button>
-      <DeletePostButton id={id} />
+      <DeletePostButton id={id} title={title} />
     </div>
   );
 };

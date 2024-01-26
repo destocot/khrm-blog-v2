@@ -7,12 +7,13 @@ import {
 } from "@/lib/schemas";
 // import * as bcrypt from "bcryptjs";
 import prisma from "@/lib/db";
-import { signIn, signOut } from "@/auth";
+import { auth, signIn, signOut } from "@/auth";
 import { AuthError } from "next-auth";
 import { SigninResponseType, SignupResponseType } from "@/lib/types";
+import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 export async function signup(
-  values: SignupFormSchemaType
+  values: SignupFormSchemaType,
 ): Promise<SignupResponseType> {
   return { error: "Signup is offline!", status: 500 };
 
@@ -53,7 +54,7 @@ export async function signup(
 }
 
 export async function signin(
-  values: SigninFormSchemaType
+  values: SigninFormSchemaType,
 ): Promise<SigninResponseType> {
   const parsed = signinFormSchema.safeParse(values);
 
@@ -95,4 +96,40 @@ export async function signin(
 
 export async function signout() {
   await signOut({ redirectTo: "/" });
+}
+
+export async function updateName(
+  prevState: { error: string | null } | undefined,
+  formData: FormData,
+) {
+  const session = await auth();
+  if (!session) {
+    return { error: "Oops, Something went wrong!" };
+  }
+  const newName = formData.get("name") as string;
+  if (session.user.name === newName) return;
+
+  try {
+    const isUsernameTaken = await prisma.user.findUnique({
+      where: { name: newName },
+      select: { id: true },
+    });
+
+    if (isUsernameTaken) {
+      return { error: "Username is already taken." };
+    }
+
+    await prisma.user.update({
+      where: { id: session.user.id },
+      data: { name: newName },
+    });
+    return { error: null, status: 200 };
+  } catch (error) {
+    if (error instanceof PrismaClientValidationError) {
+      return {
+        error: "Oops, Something went wrong!",
+      };
+    }
+    return { error: "Username is already taken." };
+  }
 }

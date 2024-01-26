@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { GearIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Metadata } from "next";
+import { ChangeNameButton } from "./ChangeNameButton";
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -24,9 +25,12 @@ export default async function DashboardPage({
       <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
       <div className="flex justify-between border p-5  shadow">
         <div>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {session?.user.name}
-          </h2>
+          <div className="flex gap-2">
+            <h2 className="text-2xl font-semibold tracking-tight">
+              {session.user.name}
+            </h2>
+            <ChangeNameButton name={session.user.name} />
+          </div>
           <p className="text-sm tracking-tight text-muted-foreground">
             {session?.user.email}
           </p>

@@ -53,7 +53,12 @@ export default async function PostDetailsPage({
       <PostImage image={post.image} title={post.title} />
       <div className="flex flex-col-reverse justify-between gap-5 sm:flex-row">
         <h1 className="text-3xl font-bold tracking-tight">{post.title}</h1>
-        <PostMutations slug={post.slug} id={post.id} authorId={post.authorId} />
+        <PostMutations
+          title={post.title}
+          slug={post.slug}
+          id={post.id}
+          authorId={post.authorId}
+        />
       </div>
       <PostBody body={post.body} />
       <div className="flex gap-5 self-end">
