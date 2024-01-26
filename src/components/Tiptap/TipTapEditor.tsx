@@ -32,7 +32,7 @@ export const TipTapEditor = ({ onChange, defaultValue = "" }: TipTapEditor) => {
     editorProps: {
       attributes: {
         class:
-          "min-h-32 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring prose dark:prose-invert max-w-none prose-p:m-0 ",
+          "min-h-32 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring prose dark:prose-invert max-w-none prose-p:m-0 max-h-[350px] overflow-y-scroll",
       },
     },
   });

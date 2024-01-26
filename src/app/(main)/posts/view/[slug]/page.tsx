@@ -86,8 +86,14 @@ function PostImage({ image, title }: { image: string | null; title: string }) {
       }}
       className="overflow-hidden rounded bg-primary-foreground bg-cover bg-no-repeat bg-blend-overlay"
     >
-      <div className="mx-auto h-28 max-w-[300px] object-cover object-top">
-        <Image src={image} alt={`${title} image`} fill sizes="300px" />
+      <div className="relative mx-auto h-28 max-w-[300px]">
+        <Image
+          src={image}
+          alt={`${title} image`}
+          fill
+          sizes="300px"
+          className="object-cover"
+        />
       </div>
     </div>
   );

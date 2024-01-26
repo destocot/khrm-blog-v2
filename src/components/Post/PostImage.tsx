@@ -15,7 +15,7 @@ export const PostImage = ({
       <Link
         aria-label="See post details"
         href={`/posts/view/${slug}`}
-        className="relative block aspect-square h-28 w-28 overflow-hidden rounded object-cover"
+        className="relative block aspect-square h-28 w-28 overflow-hidden rounded"
       >
         {image ? (
           <Image
@@ -24,6 +24,7 @@ export const PostImage = ({
             fill
             sizes="112px"
             loading="lazy"
+            className="object-cover"
           />
         ) : (
           <div className="aspect-square h-28 w-28 rounded bg-primary" />

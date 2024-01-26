@@ -28,8 +28,14 @@ export const ImageInput = ({
     return (
       <div className="flex min-h-[60px] w-full justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm hover:outline-none hover:ring-1 hover:ring-ring">
         <div className="grow">
-          <div className="block aspect-square h-20 w-20 rounded object-cover">
-            <Image src={postImage} alt="current post image" fill sizes="80px" />
+          <div className="relative block aspect-square h-20 w-20 overflow-hidden rounded">
+            <Image
+              src={postImage}
+              alt="current post image"
+              fill
+              sizes="80px"
+              className="object-cover"
+            />
           </div>
         </div>
         <DeleteImageButton postId={postId} postImage={postImage} />
