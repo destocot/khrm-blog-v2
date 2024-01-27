@@ -35,30 +35,29 @@ export const DeletePostButton = ({
           <span className="ms-2 sm:hidden">Delete</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-xs">
+      <DialogContent className="max-w-xs rounded">
         <DialogHeader>
           <DialogDescription>
             Are you sure you want to delete {title}?
           </DialogDescription>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <form action={deletePost.bind(null, id, onAdminPanel)}>
-            <div className="space-x-2">
-              <Button
-                aria-label="Delete post"
-                type="submit"
-                variant="destructive"
-              >
-                Yes
+        <form action={deletePost.bind(null, id, onAdminPanel)}>
+          <div className="flex gap-2">
+            <Button
+              aria-label="Delete post"
+              type="submit"
+              variant="destructive"
+              className="w-1/2"
+            >
+              Yes
+            </Button>
+            <DialogClose asChild>
+              <Button type="button" variant="secondary" className="w-1/2">
+                No
               </Button>
-              <DialogClose asChild>
-                <Button type="button" variant="secondary">
-                  No
-                </Button>
-              </DialogClose>
-            </div>
-          </form>
-        </div>
+            </DialogClose>
+          </div>
+        </form>
       </DialogContent>
     </Dialog>
   );

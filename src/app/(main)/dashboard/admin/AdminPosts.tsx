@@ -54,13 +54,12 @@ export const AdminPosts = async () => {
                 <span className="mr-2 font-semibold sm:hidden">Author:</span>
                 {post.author.name}
               </td>
-              <td className="whitespace-nowrap sm:px-6 sm:py-4 ">
-                <DeletePostButton
-                  id={post.id}
-                  onAdminPanel={true}
-                  title={post.title}
-                />
-              </td>
+              <td className="whitespace-nowrap sm:px-6 sm:py-4 "></td>
+              <DeletePostButton
+                id={post.id}
+                onAdminPanel={true}
+                title={post.title}
+              />
             </tr>
           ))}
         </tbody>

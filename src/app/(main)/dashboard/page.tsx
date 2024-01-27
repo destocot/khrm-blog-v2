@@ -23,7 +23,7 @@ export default async function DashboardPage({
   return (
     <main className="mx-auto max-w-3xl space-y-5 p-5">
       <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-      <div className="flex justify-between border p-5  shadow">
+      <div className="flex flex-col justify-between border p-5 shadow sm:flex-row">
         <div>
           <div className="flex gap-2">
             <h2 className="text-2xl font-semibold tracking-tight">
