@@ -44,7 +44,7 @@ export const AdminPosts = async () => {
                   href={`/posts/view/${post.slug}`}
                   className={cn(
                     buttonVariants({ variant: "link" }),
-                    "truncate p-0",
+                    " trunacate line-clamp-1 text-wrap p-0",
                   )}
                 >
                   {post.title}
@@ -54,12 +54,13 @@ export const AdminPosts = async () => {
                 <span className="mr-2 font-semibold sm:hidden">Author:</span>
                 {post.author.name}
               </td>
-              <td className="whitespace-nowrap sm:px-6 sm:py-4 "></td>
-              <DeletePostButton
-                id={post.id}
-                onAdminPanel={true}
-                title={post.title}
-              />
+              <td className="whitespace-nowrap sm:px-3 sm:py-2">
+                <DeletePostButton
+                  id={post.id}
+                  onAdminPanel={true}
+                  title={post.title}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
